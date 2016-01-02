@@ -6,6 +6,7 @@ socket.on('connect', function(){
 
 socket.on('message', function(message){
 	console.log('New message: ' + message.text);
+	$('.messages').append('<p>'+ message.text +'</p>');
 });
 
 var $form = $('#message-form');
@@ -16,7 +17,7 @@ $form.on('submit',function(evt){
 	var message = $form.find('[name=message]');
 
 	socket.emit('message', {
-		text: message.val();
+		text: message.val()
 	});
 
 	message.val('');

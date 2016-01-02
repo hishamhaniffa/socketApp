@@ -13,7 +13,8 @@ io.on('connection', function(socket){
 	socket.on('message', function(message){
 		console.log('Message received :' + message.text);
 
-		socket.broadcast.emit('message', message);
+		// socket.broadcast.emit('message', message); // to everyone expect owner.
+		io.emit('message', message);
 	});
 
 	socket.emit('message', {
