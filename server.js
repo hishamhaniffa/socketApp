@@ -8,6 +8,7 @@ var moment = require('moment');
 
 app.use(express.static(path.join(__dirname, '/public')));
 
+
 var clientInfo = {};
 
 function sendCurrentUsers(socket) {
